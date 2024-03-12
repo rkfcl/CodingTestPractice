@@ -12,10 +12,18 @@ jobs: # 실제 실행될 내용
     runs-on: ubuntu-latest # 빌드 환경
     steps:
     - uses: actions/checkout@v3 # checkout
+
+    # Node.js 20으로 업데이트
+    - name: Use Node.js 20
+      run: |
+        npm install -g npm@latest
+        npm install -g setup-node@v2
+        setup-node --version 20
     - name: Set up Python 3.10 
       uses: actions/setup-python@v3 # setup-python
       with:
         python-version: "3.10" # 3.10버전 파이썬 사용
+        
     - name: Install dependencies # 1) 스크립트에 필요한 dependency 설치
       run: |
         python -m pip install --upgrade pip
