@@ -20,6 +20,8 @@ jobs: # 실제 실행될 내용
       with:
         gradle-version: '7.3.3' # 원하는 Gradle 버전으로 변경
         arguments: jar
+    - name: Run Java Program
+      run: java -cp build/libs/*.jar UpdateReadme.Main
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
         git config --global user.name 'rkfcl' # 유저명
