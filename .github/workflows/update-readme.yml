@@ -15,13 +15,9 @@ jobs: # 실제 실행될 내용
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-      with:
-        gradle-version: '7.3.3' # 원하는 Gradle 버전으로 변경
-        arguments: jar
-    - name: Run Java Program
-      run: java -cp build/libs/*.jar UpdateReadme.Main
+    - name: Build with Gradle Wrapper
+      run: ./gradlew build
+
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
         git config --global user.name 'rkfcl' # 유저명
