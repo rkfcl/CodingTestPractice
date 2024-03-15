@@ -19,7 +19,7 @@ jobs: # 실제 실행될 내용
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
         gradle-version: '7.3.3' # 원하는 Gradle 버전으로 변경
-        arguments: build
+        arguments: jar
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
         git config --global user.name 'rkfcl' # 유저명
