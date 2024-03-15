@@ -25,7 +25,7 @@ public class Main {
         List<String> solveds = new ArrayList<>();
 
         try {
-            Files.walk(Paths.get("."), FileVisitOption.FOLLOW_LINKS)
+            Files.walk(Paths.get("백준"), FileVisitOption.FOLLOW_LINKS)
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
