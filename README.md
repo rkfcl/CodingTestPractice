@@ -1,30 +1,20 @@
 # 
-# 백준 & 프로그래머스 문제 풀이 목록
-
-프로그래머스의 경우, 푼 문제 목록에 대한 마이그레이션이 필요합니다.
-
-### 🚀 src
-| 문제번호 | 링크 |
-| ----- | ----- |
-### 🚀 main
-| 문제번호 | 링크 |
-| ----- | ----- |
-### 🚀 java
-| 문제번호 | 링크 |
-| ----- | ----- |
-|UpdateReadme|[링크](./src/main/java/UpdateReadme/Main.java)|
+# 백준 문제 풀이 목록
 ## 📚 백준
 ### 🚀 Gold
 | 문제번호 | 링크 |
 | ----- | ----- |
-|1208. 부분수열의 합 2|[링크](./%EB%B0%B1%EC%A4%80/Gold/1208.%E2%80%85%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4%EC%9D%98%E2%80%85%ED%95%A9%E2%80%852/%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4%EC%9D%98%E2%80%85%ED%95%A9%E2%80%852.java)|
-|16197. 두 동전|[링크](./%EB%B0%B1%EC%A4%80/Gold/16197.%E2%80%85%EB%91%90%E2%80%85%EB%8F%99%EC%A0%84/README.md)|
-|1644. 소수의 연속합|[링크](./%EB%B0%B1%EC%A4%80/Gold/1644.%E2%80%85%EC%86%8C%EC%88%98%EC%9D%98%E2%80%85%EC%97%B0%EC%86%8D%ED%95%A9/%EC%86%8C%EC%88%98%EC%9D%98%E2%80%85%EC%97%B0%EC%86%8D%ED%95%A9.java)|
-|1806. 부분합|[링크](./%EB%B0%B1%EC%A4%80/Gold/1806.%E2%80%85%EB%B6%80%EB%B6%84%ED%95%A9/%EB%B6%80%EB%B6%84%ED%95%A9.java)|
-|2580. 스도쿠|[링크](./%EB%B0%B1%EC%A4%80/Gold/2580.%E2%80%85%EC%8A%A4%EB%8F%84%EC%BF%A0/%EC%8A%A4%EB%8F%84%EC%BF%A0.java)|
-|4574. 스도미노쿠|[링크](./%EB%B0%B1%EC%A4%80/Gold/4574.%E2%80%85%EC%8A%A4%EB%8F%84%EB%AF%B8%EB%85%B8%EC%BF%A0/%EC%8A%A4%EB%8F%84%EB%AF%B8%EB%85%B8%EC%BF%A0.java)|
-|9663. N－Queen|[링크](./%EB%B0%B1%EC%A4%80/Gold/9663.%E2%80%85N%EF%BC%8DQueen/README.md)|
+|1208. 부분수열의 합 2|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C1208.%E2%80%85%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4%EC%9D%98%E2%80%85%ED%95%A9%E2%80%852%5CREADME.md)|
+|16197. 두 동전|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C16197.%E2%80%85%EB%91%90%E2%80%85%EB%8F%99%EC%A0%84%5CREADME.md)|
+|1644. 소수의 연속합|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C1644.%E2%80%85%EC%86%8C%EC%88%98%EC%9D%98%E2%80%85%EC%97%B0%EC%86%8D%ED%95%A9%5CREADME.md)|
+|1806. 부분합|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C1806.%E2%80%85%EB%B6%80%EB%B6%84%ED%95%A9%5CREADME.md)|
+|2580. 스도쿠|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C2580.%E2%80%85%EC%8A%A4%EB%8F%84%EC%BF%A0%5CREADME.md)|
+|4574. 스도미노쿠|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C4574.%E2%80%85%EC%8A%A4%EB%8F%84%EB%AF%B8%EB%85%B8%EC%BF%A0%5CREADME.md)|
+|9663. N－Queen|[링크](%EB%B0%B1%EC%A4%80%5CGold%5C9663.%E2%80%85N%EF%BC%8DQueen%5CN%EF%BC%8DQueen.java)|
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
-|16198. 에너지 모으기|[링크](./%EB%B0%B1%EC%A4%80/Silver/16198.%E2%80%85%EC%97%90%EB%84%88%EC%A7%80%E2%80%85%EB%AA%A8%EC%9C%BC%EA%B8%B0/%EC%97%90%EB%84%88%EC%A7%80%E2%80%85%EB%AA%A8%EC%9C%BC%EA%B8%B0.java)|
+|1182. 부분수열의 합|[링크](%EB%B0%B1%EC%A4%80%5CSilver%5C1182.%E2%80%85%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4%EC%9D%98%E2%80%85%ED%95%A9%5CREADME.md)|
+|14225. 부분수열의 합|[링크](%EB%B0%B1%EC%A4%80%5CSilver%5C14225.%E2%80%85%EB%B6%80%EB%B6%84%EC%88%98%EC%97%B4%EC%9D%98%E2%80%85%ED%95%A9%5CREADME.md)|
+|16198. 에너지 모으기|[링크](%EB%B0%B1%EC%A4%80%5CSilver%5C16198.%E2%80%85%EC%97%90%EB%84%88%EC%A7%80%E2%80%85%EB%AA%A8%EC%9C%BC%EA%B8%B0%5CREADME.md)|
+|6603. 로또|[링크](%EB%B0%B1%EC%A4%80%5CSilver%5C6603.%E2%80%85%EB%A1%9C%EB%98%90%5CREADME.md)|
