@@ -1,31 +1,36 @@
-name: Update readme # GitHub Actions 탭에서 확인할 수 있는 액션 이름
+name: Update readme
 
-on: # jobs가 실행되어야 하는 상황 정의
+on:
   push:
-    branches: [ "main" ] # main 브랜치에 push가 발생했을 때
+    branches: [ "main" ]
   pull_request:
 
-jobs: # 실제 실행될 내용
+jobs:
   build:
-    runs-on: ubuntu-latest # 빌드 환경
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3 # checkout
+    - uses: actions/checkout@v3
     - name: Setup Java JDK
-      uses: actions/setup-java@v3 # setup-java
+      uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25
       with:
-        gradle-version: '7.3.3' # 원하는 Gradle 버전으로 변경
+        gradle-version: '7.3.3'
         arguments: jar
-    - name: Commit changes # 3) 추가된 파일 commit
+    - name: Check for changes
       run: |
-        git config --global user.name 'rkfcl' # 유저명
-        git config --global user.email 'kwmkr6@gmail.com' # 유저 이메일
+        git diff --quiet || exit 0
+        exit 1
+      continue-on-error: true
+    - name: Commit changes
+      run: |
+        git config --global user.email 'kwmkr6@gmail.com'
         git add -A
-        git commit -am "auto update README.md" # 커밋 메시지
-    - name: Push changes # 4) 메인에 푸시
+        git commit -m "Auto update README.md"
+    - name: Push changes
+      if: success()
       run: |
         git push
