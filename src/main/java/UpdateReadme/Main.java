@@ -13,19 +13,21 @@ import java.net.URLEncoder;
 
 public class Main {
     private static final String HEADER = "# \n"
-            + "# 백준 & 프로그래머스 문제 풀이 목록\n"
-            + "\n"
-            + "프로그래머스의 경우, 푼 문제 목록에 대한 마이그레이션이 필요합니다.\n"
-            + "\n";
+            + "# 백준 & 프로그래머스 문제 풀이 목록\n";
 
     public static void main(String[] args) {
         StringBuilder content = new StringBuilder();
-
         List<String> directories = new ArrayList<>();
         List<String> solveds = new ArrayList<>();
+        content.append(HEADER);
+        processDirectory("백준",content,directories,solveds);
+        processDirectory("프로그래머스",content,directories,solveds);
 
+    }
+    private static void processDirectory(String targetDirectory, StringBuilder content, List<String> directories, List<String> solveds) {
+        content.append("## 📚 ").append(targetDirectory).append("\n");
         try {
-            Files.walk(Paths.get("main"), FileVisitOption.FOLLOW_LINKS)
+            Files.walk(Paths.get(targetDirectory), FileVisitOption.FOLLOW_LINKS)
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
@@ -41,13 +43,11 @@ public class Main {
                             }
 
                             if (!directories.contains(directory)) {
-                                if ("백준".equals(directory) || "프로그래머스".equals(directory)) {
-                                    content.append("## 📚 ").append(directory).append("\n");
-                                } else {
-                                    content.append("### 🚀 ").append(directory).append("\n");
-                                    content.append("| 문제번호 | 링크 |\n");
-                                    content.append("| ----- | ----- |\n");
-                                }
+
+                                content.append("### 🚀 ").append(directory).append("\n");
+                                content.append("| 문제번호 | 링크 |\n");
+                                content.append("| ----- | ----- |\n");
+
                                 directories.add(directory);
                             }
 
