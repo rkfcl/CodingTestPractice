@@ -20,14 +20,12 @@ public class Main {
 
     public static void main(String[] args) {
         StringBuilder content = new StringBuilder();
-        content.append(HEADER).append("## 📚 ").append("백준").append("\n");
-        ;
 
         List<String> directories = new ArrayList<>();
         List<String> solveds = new ArrayList<>();
 
         try {
-            Files.walk(Paths.get("백준"), FileVisitOption.FOLLOW_LINKS)
+            Files.walk(Paths.get("main"), FileVisitOption.FOLLOW_LINKS)
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
@@ -43,11 +41,13 @@ public class Main {
                             }
 
                             if (!directories.contains(directory)) {
-
-                                content.append("### 🚀 ").append(directory).append("\n");
-                                content.append("| 문제번호 | 링크 |\n");
-                                content.append("| ----- | ----- |\n");
-
+                                if ("백준".equals(directory) || "프로그래머스".equals(directory)) {
+                                    content.append("## 📚 ").append(directory).append("\n");
+                                } else {
+                                    content.append("### 🚀 ").append(directory).append("\n");
+                                    content.append("| 문제번호 | 링크 |\n");
+                                    content.append("| ----- | ----- |\n");
+                                }
                                 directories.add(directory);
                             }
 
