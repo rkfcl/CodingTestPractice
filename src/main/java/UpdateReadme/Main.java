@@ -13,21 +13,21 @@ import java.net.URLEncoder;
 
 public class Main {
     private static final String HEADER = "# \n"
-            + "# 백준 & 프로그래머스 문제 풀이 목록\n"
-            + "\n"
-            + "프로그래머스의 경우, 푼 문제 목록에 대한 마이그레이션이 필요합니다.\n"
-            + "\n";
+            + "# 백준 & 프로그래머스 문제 풀이 목록\n";
 
     public static void main(String[] args) {
         StringBuilder content = new StringBuilder();
-        content.append(HEADER).append("## 📚 ").append("백준").append("\n");
-        ;
-
         List<String> directories = new ArrayList<>();
         List<String> solveds = new ArrayList<>();
-
+        content.append(HEADER);
+        processDirectory("백준",content,directories,solveds);
+        processDirectory("프로그래머스",content,directories,solveds);
+        writeToFile("README.md", content.toString());
+    }
+    private static void processDirectory(String targetDirectory, StringBuilder content, List<String> directories, List<String> solveds) {
+        content.append("## 📚 ").append(targetDirectory).append("\n");
         try {
-            Files.walk(Paths.get("백준"), FileVisitOption.FOLLOW_LINKS)
+            Files.walk(Paths.get(targetDirectory), FileVisitOption.FOLLOW_LINKS)
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
@@ -57,14 +57,11 @@ public class Main {
                                 String link = URLEncoder.encode(filePath.toString(), "UTF-8");
                                 content.append("|").append(category).append("|[링크](").append(link).append(")|\n");
                                 solveds.add(category);
-                                System.out.println("category : " + category);
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     });
-
-            writeToFile("README.md", content.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
