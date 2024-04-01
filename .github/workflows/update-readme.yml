@@ -1,3 +1,4 @@
+
 name: Update readme # GitHub Actions 탭에서 확인할 수 있는 액션 이름
 
 on: # jobs가 실행되어야 하는 상황 정의
@@ -15,12 +16,13 @@ jobs: # 실제 실행될 내용
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Grant execute permission to gradlew
-      run: chmod +x ./gradlew
-      
-    - name: Build with Gradle Wrapper
-      run: ./gradlew build
-
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      with:
+        gradle-version: '7.3.3' # 원하는 Gradle 버전으로 변경
+        arguments: jar
+    - name: Run Java Program
+      run: java -cp build/libs/*.jar UpdateReadme.Main
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
         git config --global user.name 'rkfcl' # 유저명
