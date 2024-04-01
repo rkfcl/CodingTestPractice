@@ -20,14 +20,9 @@ public class Main {
         List<String> directories = new ArrayList<>();
         List<String> solveds = new ArrayList<>();
         content.append(HEADER);
-        processDirectory("백준",content,directories,solveds);
-        processDirectory("프로그래머스",content,directories,solveds);
-
-    }
-    private static void processDirectory(String targetDirectory, StringBuilder content, List<String> directories, List<String> solveds) {
-        content.append("## 📚 ").append(targetDirectory).append("\n");
+        content.append("## 📚 ").append("백준").append("\n");
         try {
-            Files.walk(Paths.get(targetDirectory), FileVisitOption.FOLLOW_LINKS)
+            Files.walk(Paths.get("백준"), FileVisitOption.FOLLOW_LINKS)
                     .filter(Files::isRegularFile)
                     .forEach(filePath -> {
                         try {
@@ -57,7 +52,48 @@ public class Main {
                                 String link = URLEncoder.encode(filePath.toString(), "UTF-8");
                                 content.append("|").append(category).append("|[링크](").append(link).append(")|\n");
                                 solveds.add(category);
-                                System.out.println("category : " + category);
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+            writeToFile("README.md", content.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        content.append("## 📚 ").append("프로그래머스").append("\n");
+        try {
+            Files.walk(Paths.get("프로그래머스"), FileVisitOption.FOLLOW_LINKS)
+                    .filter(Files::isRegularFile)
+                    .forEach(filePath -> {
+                        try {
+                            String category = filePath.getParent().getFileName().toString();
+
+                            if ("images".equals(category)) {
+                                return;
+                            }
+
+                            String directory = filePath.getParent().getParent().getFileName().toString();
+                            if (".".equals(directory)) {
+                                return;
+                            }
+
+                            if (!directories.contains(directory)) {
+
+                                content.append("### 🚀 ").append(directory).append("\n");
+                                content.append("| 문제번호 | 링크 |\n");
+                                content.append("| ----- | ----- |\n");
+
+                                directories.add(directory);
+                            }
+
+
+
+                            if (!solveds.contains(category)) {
+                                String link = URLEncoder.encode(filePath.toString(), "UTF-8");
+                                content.append("|").append(category).append("|[링크](").append(link).append(")|\n");
+                                solveds.add(category);
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
